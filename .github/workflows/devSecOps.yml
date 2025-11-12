@@ -78,6 +78,17 @@ jobs:
     - name: Download code
       uses: actions/download-artifact@v4
       with:
+
+  sonarqube:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: action/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: SonarQube Scan
+      uses: sonarsourche/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         name: code
         path: .
     - name: Execute component test
