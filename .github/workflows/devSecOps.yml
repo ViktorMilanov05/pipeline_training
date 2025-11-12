@@ -13,7 +13,7 @@ jobs:
     - name: Upload Repo
       uses: actions/upload-artifact@v4
       with:
-        name: code
+        name: code1
         path: .
         include-hidden-files: true
   Test:
@@ -24,7 +24,7 @@ jobs:
     - name: Download code
       uses: actions/download-artifact@v4
       with:
-        name: code
+        name: code1
         path: . 
     - name: Test with Gradle
       run: chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh
@@ -36,14 +36,14 @@ jobs:
     - name: Download code
       uses: actions/download-artifact@v4
       with:
-        name: code
+        name: code1
         path: .
     - name: Build with Gradle
       run: chmod +x ci/build-app.sh && ci/build-app.sh
     - name: Upload Repo
       uses: actions/upload-artifact@v4
       with:
-        name: code
+        name: code1
         path: .
   Docker-image:
     runs-on: ubuntu-latest
@@ -52,7 +52,7 @@ jobs:
     - name: Download code
       uses: actions/download-artifact@v4
       with:
-        name: code
+        name: code1
         path: .
     - name: build docker
       run: chmod +x ci/build-docker.sh && export GIT_COMMIT="GA-$GITHUB_SHA" && ci/build-docker.sh
@@ -65,7 +65,7 @@ jobs:
     - name: Download code
       uses: actions/download-artifact@v4
       with:
-        name: code
+        name: code1
         path: .
     - name: Execute component test
       run: chmod +x ci/component-test.sh && GIT_COMMIT="GA-$GITHUB_SHA" && ci/component-test.sh
