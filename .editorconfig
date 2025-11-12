@@ -1,0 +1,12 @@
+root = true
+
+[*]
+charset = utf-8                 # Кодировка
+indent_style = space            # Използвай интервали вместо табове
+indent_size = 4                 # Размер на отстъпите
+end_of_line = lf                # UNIX стил на нов ред
+insert_final_newline = true     # Нов ред в края на всеки файл
+trim_trailing_whitespace = true # Премахва празните интервали в края на реда
+
+[*.md]
+trim_trailing_whitespace = false
